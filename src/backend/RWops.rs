@@ -17,8 +17,16 @@ pub struct EntryRead {
 }
 
 
-pub fn write(entry: EntryWrite) {
-
+pub fn write(entry: EntryWrite) -> i8 { // maybe i shouldve written this in C
+    match File::open(format!("{}/{}.hon", entry.parent, entry.name)) {
+        Ok(mut file) => {
+            todo!();
+            return 1; //damn im lazy 
+        }
+        Err(e) => {
+            return 1;
+        }
+    }
 }
 pub fn read(entry: EntryRead) -> String {
     match File::open(format!("{}/{}", entry.parent, entry.name)) {
