@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include "readwrite.h"
 
-char* hon_read(const honRead *entry) {
+
+char* hon_read(const query *entry) {
     char fpath[256];
-    snprintf(fpath, sizeof(fpath), "%s/%s", entry->parent, entry->name);
+    snprintf(fpath, sizeof(fpath), "%s/%s", entry->from, entry->select);
     FILE * reader = fopen(fpath, "r");
     if (reader == NULL) {
         return NULL;
